@@ -1,0 +1,155 @@
+body
+{
+	display: grid;
+	grid-template-columns: 55% auto 15%;
+	grid-template-areas: "leftSection rightSection ...";
+	font-family: geometria;
+}
+
+#leftSection
+{
+	grid-area: leftSection;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var(--colorBackground);
+}
+
+#logo
+{
+	margin: 7.5rem 0 0 0;
+	font-family: comfortaa;
+	font-size: var(--fontSizeXXL);
+	font-weight: bold;
+	text-transform: uppercase;
+	text-shadow: 0 0 0.75rem;
+	letter-spacing: 1.25em;
+}
+
+#description
+{
+	margin: 5rem 0 0 0;
+	width: 50%;
+	font-size: var(--fontSizeXL);
+	line-height: 1.5;
+}
+
+#phrase
+{
+	align-self: flex-end;
+	margin: 3rem 20% 0 0;
+/*	font-size: var(--fontSizeXS);*/
+	font-size: var(--fontSizeM);
+/*	font-weight: bold;*/
+/*	text-transform: uppercase;*/
+/*	text-shadow: 0 0 0.75em;*/
+	text-shadow: 0 0 1em;
+/*	letter-spacing: 0.075em;*/
+}
+
+#phrase > span
+{
+	font-family: comfortaa;
+	font-size: var(--fontSizeXL);
+	text-shadow: 0 0 0.75rem;
+	white-space: pre-wrap;
+}
+
+#rightSection
+{
+	grid-area: rightSection;
+	position: relative;
+}	
+
+form
+{
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 3rem;
+	width: 100%;
+	height: 100%;
+	color: var(--colorText);
+	background-color: var(--colorBackground);
+}
+
+.formTitle
+{
+	margin: 0 0 1.5rem 0;
+	font-size: var(--fontSizeM);
+	font-weight: bold;
+}
+.formError
+{
+	margin: 0 0 1.5rem 0;
+	font-size: var(--fontSizeS);
+	color: red;
+	font-weight: normal;
+}
+
+/*.input[type = 'text'],*/
+/*.input[type = 'password']*/
+input[type = 'text'],
+input[type = 'password']
+{
+	display: block;
+	margin:  0 0 1em 0;
+	width: 100%;
+	padding: 0.75em 1em;
+/*	font-family: inherit;*/
+/*	font-size: inherit;*/
+	font-weight: bold;
+/*	color: var(--colorText);*/
+	background-color: var(--colorBackgroundLightGrey);
+	border: solid var(--borderWidthThin) var(--colorBorderLightGrey);
+}
+
+/*.input::placeholder*/
+input::placeholder
+{
+	font-weight: normal;
+}
+
+#loginControl
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1em 0 0 0;
+	font-size: var(--fontSizeS);
+}
+
+input[type = 'submit']
+{
+	display: flex;
+	justify-content: center;
+	margin: 2em 0 0 0;
+	padding: 0.75em 1em;
+/*	font-family: inherit;*/
+/*	font-size: inherit;*/
+	font-weight: bold;
+	color: var(--colorBackground);
+	background-color: var(--colorPrimary);
+	cursor: pointer;
+}
+
+input[type = 'submit']:hover
+{
+	text-shadow: 0 0 0.5em;
+	background-color: var(--colorPrimaryUltraDark);
+}
+
+.formNote
+{
+	margin: 2em 0 0 0;
+	font-size: var(--fontSizeS);
+	line-height: 1.5;
+}
+
+#registrationForm > label
+{
+	align-self: flex-start;
+	margin: 1em 0 0 0;
+	font-size: var(--fontSizeS);
+}

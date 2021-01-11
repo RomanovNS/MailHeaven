@@ -1,0 +1,608 @@
+:root
+{
+	--sectionHeaderFontSize: var(--fontSizeXL);
+	--sectionHeaderMarginTop: 3rem;
+	--controlSectionIconsWidth: 4rem;
+	--browserSectionHorizontalPadding: 1.5rem;
+}
+
+body
+{
+	display: grid;
+	grid-template-columns: 20% 30% 50%;
+	grid-template-rows: 6rem calc(100vh - 6rem);
+	grid-template-areas:
+		"logo           nav            nav"
+		"controlSection browserSection letterSection";
+	font-family: geometria;
+	color: var(--colorText);
+}
+
+#logo
+{
+	grid-area: logo;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: comfortaa;
+	font-size: var(--fontSizeXS);
+	font-weight: bold;
+	text-transform: uppercase;
+	text-shadow: 0 0 0.5em;
+	letter-spacing: 1.5em;
+	color: var(--colorBackground);
+	background-color: var(--colorPrimaryUltraDark);
+}
+
+#nav
+{
+	grid-area: nav;
+	display: flex;
+	padding: 0 3em 0 0;
+	font-size: var(--fontSizeM);
+	color: var(--colorBackground);
+	background-color: var(--colorPrimaryUltraDark);
+}
+
+.navToken
+{
+	display: flex;
+	align-items: center;
+	margin: 0 3em 0 0;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.navToken:hover
+{
+	text-shadow: 0 0 0.5em;
+}
+
+.navTokenIcon
+{
+	margin: 0 0.5em 0 0;
+	font-size: var(--fontSizeXXL);
+}
+
+#navLogoutForm
+{
+}
+
+#navLogoutForm > input
+{
+	height: 100%;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+#navLogoutForm > input:hover
+{
+	text-shadow: 0 0 0.5em;
+}
+
+#search
+{
+	display: flex;
+	flex-grow: 1;
+	padding: 1.75em 0;
+}
+
+#search > input
+{
+	flex-grow: 1;
+	padding: 0 1em;
+	max-width: 30em;
+	font-weight: bold;
+	background-color: inherit;
+	border: solid var(--borderWidthThin) var(--colorPrimaryUltraLight);
+}
+
+#search > input::placeholder
+{
+	color: inherit;
+	font-weight: normal;
+}
+
+#searchButton
+{
+	display: flex;
+	align-items: center;
+	margin: 0 0 0 0.5em;
+	padding: 0 1em;
+	border: solid var(--borderWidthThin) var(--colorPrimaryUltraLight);
+	cursor: pointer;
+}
+
+#searchButton:hover
+{
+	text-shadow: 0 0 0.5em;
+}
+
+.sectionDummy
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font-size: var(--fontSizeXXXL);
+	text-transform: uppercase;
+	color: var(--colorBorderLightGrey);
+	background-color: var(--colorBackground);
+}
+
+#controlSection
+{
+	grid-area: controlSection;
+	color: var(--colorBackground);
+	background-color: var(--colorPrimaryDarkOpacity);
+	backdrop-filter: blur(5px);
+}
+
+.controlSectionBlock
+{
+}
+
+.controlSectionHeader
+{
+	display: flex;
+	align-items: center;
+	margin: var(--sectionHeaderMarginTop) 0 1em 0;
+	font-size: var(--sectionHeaderFontSize);
+	font-weight: bold;
+	text-shadow: 0 0 0.5em;
+}
+
+.controlSectionHeaderIcon
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: var(--controlSectionIconsWidth);
+	font-size: var(--fontSizeXXL);
+	font-weight: normal;
+}
+
+.controlSectionToken
+{
+	padding: 0.75rem 2rem 0.75rem 0;
+	font-size: var(--fontSizeL);
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.controlSectionToken:hover
+{
+	background-color: var(--colorBackgroundOpacity);
+}
+
+.controlSectionTokenMarker
+{
+	grid-area: marker;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--fontSizeS);
+}
+
+.controlSectionTokenName
+{
+	grid-area: name;
+}
+
+.accountRecord
+{
+	display: grid;
+	grid-template-columns: var(--controlSectionIconsWidth) auto 2rem;
+	grid-template-areas:
+		"marker name   name"
+		"marker e-mail e-mail";
+}
+
+.accountEmail
+{
+	grid-area: e-mail;
+	font-size: var(--fontSizeS);
+	font-weight: normal;
+}
+
+#addAccountButton
+{
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	padding: 0.75rem 2rem 0.75rem var(--controlSectionIconsWidth);
+	font-size: var(--fontSizeL);
+	cursor: pointer;
+}
+
+#addAccountButton:hover
+{
+	text-shadow: 0 0 0.5em;
+}
+
+.folderRecord
+{
+	display: grid;
+	grid-template-columns: var(--controlSectionIconsWidth) auto 2rem;
+	grid-template-areas:
+		"marker name count";
+}
+
+.folderCount
+{
+	grid-area: count;
+}
+
+#foldersDummy
+{
+	padding: 0.75rem var(--controlSectionIconsWidth);
+	font-size: var(--fontSizeL);
+}
+
+#browserSection
+{
+	grid-area: browserSection;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	background-color: var(--colorBackground);
+	border-right: solid var(--borderWidthThin) var(--colorBorderLightGrey);
+}
+
+#browserSectionHeader
+{
+	display: flex;
+	justify-content: space-between;
+	margin: var(--sectionHeaderMarginTop) 0 0 0;
+	padding: 0 var(--browserSectionHorizontalPadding) 1em var(--browserSectionHorizontalPadding);
+	font-size: var(--sectionHeaderFontSize);
+	font-weight: bold;
+	border-bottom: solid var(--borderWidthNormal) var(--colorBorderLightGrey);	
+}
+
+#browserPageControl
+{
+	display: flex;
+	align-items: center;
+	font-size: var(--fontSizeM);	
+	font-weight: normal;
+}
+
+#browserPageControl > input
+{
+	padding: 0.15em 0.25em;
+	width: 3.5em;
+	font-weight: bold;
+	background-color: var(--colorBackgroundLightGrey);
+	border: solid var(--borderWidthThin) var(--colorBorderLightGrey);
+}
+
+#browserPageControl > input:hover,
+#browserPageControl > input:focus
+{
+	color: var(--colorPrimaryDark);
+	background-color: var(--colorPrimaryUltraLight);
+	border-color: var(--colorPrimary);
+}
+
+#browserPageControl > span
+{
+	font-weight: bold;
+}
+
+#browserRecordsContainer
+{
+	flex-grow: 1;
+}
+
+.browserRecord
+{
+	display: flex;
+	padding: 1em var(--browserSectionHorizontalPadding);
+	font-size: var(--fontSizeM);
+	border-bottom: solid var(--borderWidthThin) var(--colorBorderLightGrey);
+	cursor: pointer;
+}
+
+.browserRecord:hover
+{
+	background-color: var(--colorBackgroundLightGrey);
+}
+
+.browserRecordLogo
+{
+	display: flex;
+	flex-shrink: 0;
+	justify-content: center;
+	align-items: center;
+	width: 3em;
+	height: 3em;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: var(--colorBackground);
+	background-color: var(--colorPrimary);
+}
+
+.browserRecord:hover > .browserRecordLogo
+{
+	text-shadow: 0 0 0.5em;
+	background-color: var(--colorPrimaryDark);
+}
+
+.browserRecordContent
+{
+	flex-grow: 1;
+	overflow: hidden;
+	margin: 0 1em;
+}
+
+.browserRecordSender
+{
+	overflow: hidden;
+	font-weight: bold;
+	max-height: 1.25em;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.browserRecordTitle
+{
+	overflow: hidden;
+	margin: 0.5rem 0 0 0;
+	max-height: 1.25em;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.browserRecordLetter
+{
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	margin: 0.5rem 0 0 0;
+	font-size: var(--fontSizeS);
+	color: var(--colorTextLight);
+}
+
+.browserRecord:hover > .browserRecordContent > .browserRecordSender
+{
+	color: var(--colorPrimaryDark);
+}
+
+.browserRecordDate
+{
+	font-size: var(--fontSizeXS);
+	color: var(--colorTextLight);
+}
+
+.browserRecordSelected
+{
+	background-color: var(--colorPrimaryUltraLight) !important;
+}
+
+.browserRecordSelected > .browserRecordLogo
+{
+	text-shadow: 0 0 0.5em;
+	background-color: var(--colorPrimaryDark) !important;
+}
+
+.browserRecordSelected .browserRecordSender
+{
+	color: var(--colorPrimaryDark) !important;
+}
+
+.browserRecordSelected .browserRecordTitle,
+.browserRecordSelected .browserRecordLetter,
+.browserRecordSelected > .browserRecordDate
+{
+	color: var(--colorPrimaryUltraDark) !important;
+}
+
+#letterSection
+{
+	grid-area: letterSection;
+	position: relative;
+}
+
+.letterBlock
+{
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0 2rem 2rem 2rem;
+	background-color: var(--colorBackground);
+}
+
+#letterTitle
+{
+	margin: var(--sectionHeaderMarginTop) 0 1.5em 0;
+	font-size: var(--sectionHeaderFontSize);
+	font-weight: bold;
+}
+
+.letterTransportString
+{
+	margin: 0 0 0.5em 0;
+	font-size: var(--fontSizeM);
+	color: var(--colorTextLight);
+}
+
+.letterTransportName
+{
+	color: var(--colorText);
+}
+
+.letterTransportEmail
+{
+	color: var(--colorPrimaryDark);
+}
+
+#letterReadBlock > iframe
+{
+	flex-grow: 1;
+	margin: 2rem 0 0 0;
+	background-color: var(--colorBackgroundLightGrey);
+	border: solid var(--borderWidthThin) var(--colorBorderLightGrey);
+}
+
+#letterWriteBlock
+{
+	padding-top: 3rem;
+}
+
+.letterWriteParam
+{
+	display: flex;
+	align-items: center;
+	padding: 1em 0 0.5em 0;
+	font-size: var(--fontSizeM);
+	border-bottom: solid var(--borderWidthThin) var(--colorBorderLightGrey);
+}
+
+.letterWriteParam > input
+{
+	flex-grow: 1;
+}
+
+#letterWriteFromEmail
+{
+	font-weight: normal;
+	color: var(--colorTextLight);
+}
+
+#letterWriteTo
+{
+	font-weight: normal;
+	color: var(--colorPrimaryDark);
+}
+
+#letterWriteTitle
+{
+}
+
+#quote
+{
+	margin: 1.5rem 0 0 0;
+	padding: 1em 1em 1em 1.5em;
+	font-size: var(--fontSizeS);
+	color: var(--colorPrimaryDark);
+	background-color: var(--colorPrimaryUltraLight);
+	border-left: solid var(--borderWidthThick) var(--colorPrimary);
+}
+
+#letterWriteBlock > textarea
+{
+	flex-shrink: 0.5;
+	margin: 1.5em 0 0 0;
+	padding: 1em;
+	height: 20em;
+	font-family: inherit;
+	font-size: var(--fontSizeM);
+	line-height: 1.5;
+	background-color: var(--colorBackgroundLightGrey);
+	border: solid var(--borderWidthThin) var(--colorBorderLightGrey);
+}
+
+#letterWriteBlock > input[type = 'submit']
+{
+	margin: 1.5em 0 0 0;
+	padding: 0.75em 1em;
+	width: fit-content;
+	font-size: var(--fontSizeM);
+	font-weight: bold;
+	color: var(--colorBackground);
+	background-color: var(--colorPrimary);
+	cursor: pointer;
+}
+
+#letterWriteBlock > input[type = 'submit']:hover
+{
+	text-shadow: 0 0 0.5em;
+	background-color: var(--colorPrimaryUltraDark);
+}
+
+#addAccountPopup
+{
+	display: flex;
+	position: absolute;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	backdrop-filter: blur(5px);
+	background-color: var(--colorPopupBackground);
+}
+
+#addAccountPopupContent
+{
+	position: relative;
+	padding: 3em;
+	width: 25em;
+	font-size: var(--fontSizeM);
+	background-color: var(--colorBackground);
+	border: solid var(--borderWidthThin) var(--colorBorderLightGrey);
+	box-shadow: 0 1em 2em var(--colorShadow);
+}
+
+#addAccountPopupCloseButton
+{
+	position: absolute;
+	padding: 1em;
+	top: 0;
+	right: 0;
+	color: var(--colorPrimaryUltraDark);
+	cursor: pointer;
+}
+
+#addAccountPopupHeader
+{
+	margin: 0 0 1.5rem 0;
+	font-weight: bold;
+	color: var(--colorPrimaryUltraDark);
+}
+
+#addAccountPopupContent > input[type = 'text'],
+#addAccountPopupContent > input[type = 'password']
+{
+	display: block;
+	margin:  0 0 1em 0;
+	width: 100%;
+	padding: 0.75em 1em;
+	font-weight: bold;
+	background-color: var(--colorBackgroundLightGrey);
+	border: solid var(--borderWidthThin) var(--colorBorderLightGrey);
+}
+
+#addAccountPopupContent > input::placeholder
+{
+	font-weight: normal;
+}
+
+#addAccountPopupContent > input[type = 'submit']
+{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 0.75em 1em;
+	font-weight: bold;
+	color: var(--colorBackground);
+	background-color: var(--colorPrimary);
+	cursor: pointer;
+}
+
+#addAccountPopupContent > input[type = 'submit']:hover
+{
+	text-shadow: 0 0 0.5em;
+	background-color: var(--colorPrimaryUltraDark);
+}

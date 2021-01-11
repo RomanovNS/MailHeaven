@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang ='ru'>
+	<head>
+		<title> Mail Heaven </title>
+		<meta charset = 'utf-8'/>
+		<link rel = 'shortcut icon' type = 'image/png' href = 'images/icon.png'/>
+		<link rel = 'stylesheet' type = 'text/css' href = 'styles/common.css'>
+		<link rel = 'stylesheet' type = 'text/css' href = 'styles/mainPage.css'>
+	</head>
+	<body>
+		<div id = 'logo'>
+			Mail Heaven
+		</div>
+		<nav id = 'nav'>
+			<div class = 'navToken'>
+				<div class = 'navTokenIcon'>
+					✎
+				</div>
+				Написать
+			</div>
+			<div class = 'navToken'>
+				<div class = 'navTokenIcon'>
+					➥
+				</div>
+				Ответить
+			</div>
+			<form id = 'navLogoutForm' class = 'navToken' th:action = '@{/logout}' method = 'post'>
+				<input type = 'submit' value = '⛴ &nbsp; Выйти' >
+			</form>
+			<div id = 'search'>
+				<input type = 'text' name = 'search' placeholder = 'Поиск'>
+				<div id = 'searchButton'>
+					Искать
+				</div>
+			</div>
+		</nav>			
+		<section id = 'controlSection'>
+			<div class = 'controlSectionBlock'>
+				<div class = 'controlSectionHeader'>
+					<div class = 'controlSectionHeaderIcon'>
+						†
+					</div>
+					Учетные записи
+				</div>
+				<div id = 'accountsContainer'>
+				</div>
+				<div id = 'addAccountButton'>
+					Добавить
+				</div>
+			</div>
+			<div class = 'controlSectionBlock'>
+				<div class = 'controlSectionHeader'>
+					<div class = 'controlSectionHeaderIcon'>
+						☰
+					</div>
+					Папки
+				</div>
+				<div id = 'foldersContainer'>
+				</div>
+				<div id = 'foldersDummy'>
+					Учетная запись не выбрана
+				</div>
+			</div>
+		</section>
+		<section id = 'browserSection'>
+			<div id = 'browserSectionHeader'>
+				<span> Входящие	</span>
+				<div id = 'browserPageControl'>
+					Страница &nbsp;
+					<input type = 'text'>
+					&nbsp; из &nbsp;
+					<span> </span>
+				</div>
+			</div>
+			<div id = 'browserRecordsContainer' class = 'scrollable'>
+			</div>
+			<div class = 'sectionDummy'>
+				Папка не выбрана
+			</div>
+		</section>
+		<section id = 'letterSection'>
+			<div id = letterReadBlock class = 'letterBlock'>
+				<div id = 'letterTitle'>
+					Title
+				</div>
+				<div class = 'letterTransportString'>
+					От: &nbsp;
+					<span class = letterTransportName>
+						Sender name
+					</span>
+					&nbsp;
+					<span class = letterTransportEmail>
+						Sender e-mail
+					</span>
+				</div>
+				<div class = 'letterTransportString'>
+					Кому: &nbsp;
+					<span class = letterTransportName>
+						Recipient name
+					</span>
+					&nbsp;
+					<span class = letterTransportEmail>
+						Recipient e-mail
+					</span>
+				</div>
+				<iframe srcdoc = "">
+				</iframe>
+			</div>
+			<form id = letterWriteBlock class = 'letterBlock' th:action = '@{/sendLetter}' method = 'post'>
+				<div class = 'letterWriteParam'>
+					От: &nbsp;
+					<input id = letterWriteFromEmail name = 'senderEmail' type = 'text' value = 'e-mail' required readonly>
+				</div>
+				<div class = 'letterWriteParam'>
+					Кому: &nbsp;
+					<input id = letterWriteTo name = 'recipientEmail' type = 'text' required>
+				</div>
+				<div class = 'letterWriteParam'>
+					Тема: &nbsp;
+					<input id = letterWriteTitle name = 'title' type = 'text' required>
+				</div>
+				<div id = 'quote' class = 'scrollable'>
+				</div>
+				<textarea class = 'scrollable' name = 'letterText' required></textarea>
+				<input type = 'submit' value = 'Отправить'>
+			</form>
+			<div class = 'sectionDummy'>
+				Письмо не выбрано
+			</div>
+		</section>
+		<section id = 'addAccountPopup' class = 'displayNone'>
+			<form id = 'addAccountPopupContent' th:action = '@{/addAccount}' method = 'post' th:object='${mailboxaccount}'>
+				<div id = 'addAccountPopupCloseButton'>
+					✖
+				</div>
+				<div id = 'addAccountPopupHeader'>
+					Добавить новую учетную запись
+				</div>
+				<input type = 'text' name = 'email' placeholder = 'Логин' required>
+				<input type = 'password' name = 'password' placeholder = 'Пароль' required>
+				<input type = 'submit' value = 'Добавить'>
+			</form>
+		</section>
+
+		<template>
+			<div class = 'browserRecord'>
+				<div class = 'browserRecordLogo'>
+					BR
+				</div>
+				<div class = 'browserRecordContent'>
+					<div class = 'browserRecordSender'>
+						Sender
+					</div>
+					<div class = 'browserRecordTitle'>
+						Title
+					</div>
+					<div class = 'browserRecordLetter'>
+						Letter text
+					</div>
+				</div>
+				<div class = 'browserRecordDate'>
+					Date
+				</div>
+			</div>
+
+			<div class = 'controlSectionToken accountRecord'>
+				<div class = 'controlSectionTokenMarker'>
+				</div>
+				<div class = 'controlSectionTokenName'>
+					Name
+				</div>
+				<div class = 'accountEmail'>
+					E-mail
+				</div>
+			</div>
+
+			<div class = 'controlSectionToken folderRecord'>
+				<div class = 'controlSectionTokenMarker'>
+				</div>
+				<div class = 'controlSectionTokenName'>
+					Name
+				</div>
+				<div class = 'folderCount'>
+					1
+				</div>
+			</div>
+		</template>
+
+		<script src = 'scripts/mainPage.js'> </script>
+	</body>
+</html>

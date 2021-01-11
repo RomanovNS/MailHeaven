@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang ='ru'>
+	<head>
+		<title> Mail Heaven </title>
+		<meta charset = 'utf-8'/>
+		<link rel = 'shortcut icon' type = 'image/png' href = '/images/icon.png'/>
+		<link rel = 'stylesheet' type = 'text/css' href = '/styles/common.css'/>
+		<link rel = 'stylesheet' type = 'text/css' href = '/styles/startPage.css'/>
+	</head>
+	<body>
+		<div id = 'logo'>
+			Mail Heaven
+		</div>
+		<div id = 'logoUnderline'>
+		</div>
+		<div id = 'greetings'>
+			Добро пожаловать в наш праведный почтовый клиент<span th:if="${logged} == true" th:text="${username}"></span>!
+		</div>
+		<div id = 'buttonContainer'>
+			<a th:if="${logged} == false" href = '/login'>
+				Вход
+			</a>
+			<a th:if="${logged} == false" href = '/registration'>
+				Регистрация
+			</a>
+			<a th:if="${logged} == true" href = '/main'>
+				Перейти к письмам
+			</a>
+			<form th:if="${logged} == true" th:action="@{/logout}" method="post">
+				<input type="submit" value="Выйти из системы">
+			</form>
+		</div>
+	</body>
+</html>

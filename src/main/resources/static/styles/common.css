@@ -1,0 +1,174 @@
+@charset "utf-8";
+
+@font-face
+{
+	font-family: comfortaa;
+	src: url('../fonts/comfortaaRegular.ttf');
+	font-weight: normal;
+}
+
+@font-face
+{
+	font-family: comfortaa;
+	src: url('../fonts/comfortaaBold.ttf');
+	font-weight: bold;
+}
+
+@font-face
+{
+	font-family: geometria;
+	src: url('../fonts/geometria.woff');
+	font-weight: normal;
+}
+
+@font-face
+{
+	font-family: geometria;
+	src: url('../fonts/geometriaMedium.woff');
+	font-weight: bold;
+}
+
+:root
+{
+	--colorBackground: white;
+	--colorBackgroundOpacity: rgba(255, 255, 255, 0.25);
+	--colorPrimaryUltraLight: #e5effa;
+	--colorPrimary: #6495D3;
+	--colorPrimaryDark: #3265A7;
+	--colorPrimaryUltraDark: #254a7a;
+	--colorPrimaryDarkOpacity: #3265A7A0;
+	--colorSecondary: #FFB53C;
+	--colorSecondaryDark: #ff9d00;
+	--colorText: #222;
+	--colorTextLight: #AAA;
+	--colorBorderLightGrey: rgb(220, 220, 220);
+	--colorBackgroundLightGrey: rgb(245, 245, 245);
+	--colorPopupBackground: #FFFFFF80;
+	--colorShadow: #00000080;
+
+	--borderWidthThin: 1px;
+	--borderWidthNormal: 2px;
+	--borderWidthThick: 3px;
+
+	--fontSizeXS: 0.75rem;
+	--fontSizeS: 0.875rem;
+	--fontSizeM: 1rem;
+	--fontSizeL: 1.125rem;
+	--fontSizeXL: 1.25rem;
+	--fontSizeXXL: 1.5rem;
+	--fontSizeXXXL: 2rem;
+}
+
+*
+{
+	box-sizing: border-box;
+}
+
+*::selection
+{
+	color: var(--colorBackground);
+	background-color: var(--colorPrimary);
+}
+
+html
+{
+	font-size: 16px;
+}
+
+body
+{
+	overflow: hidden;
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	background-image: url(../images/background/0.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+a
+{
+	color: var(--colorPrimaryDark);
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover
+{
+	font-weight: bold;
+}
+
+input, textarea
+{
+	border: none;
+	outline: none;
+	resize: none;
+}
+
+input[type = 'text'],
+input[type = 'password'],
+input[type = 'submit']
+{
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: bold;
+	color: inherit;
+}
+
+.labelWithCheckbox
+{
+	display: flex;
+	position: relative;
+	align-items: center;
+	cursor: pointer;
+}
+
+.labelWithCheckbox > div
+{
+	display: inline-block;
+	position: relative;
+	margin: 0 0.75em 0 0;
+	width: 1.25em;
+	height: 1.25em;
+	background-color: var(--colorBackgroundLightGrey);
+	border: solid var(--borderWidthThin) var(--colorBorderLightGrey);
+}
+
+.labelWithCheckbox > input
+{
+	position: absolute;
+}
+
+.labelWithCheckbox > input:checked + div
+{
+	background-image: url(../images/checkbox.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 85%;
+}
+
+.scrollable
+{
+	overflow-y: auto;
+}
+
+.scrollable::-webkit-scrollbar
+{
+	width: 0.5rem;
+}
+
+.scrollable::-webkit-scrollbar-thumb
+{
+	background-color: var(--colorPrimary);
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover
+{
+	background-color: var(--colorPrimaryDark);
+}
+
+.displayNone
+{
+	display: none !important;
+}
